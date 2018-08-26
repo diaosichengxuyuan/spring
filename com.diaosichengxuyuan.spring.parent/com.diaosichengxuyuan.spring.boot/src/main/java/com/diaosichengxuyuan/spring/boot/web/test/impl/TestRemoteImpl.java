@@ -35,21 +35,21 @@ public class TestRemoteImpl implements TestRemote {
         return testService.selectAll();
     }
 
-    @RequestMapping(value = "selectPage", method = RequestMethod.POST)
+    @RequestMapping(value = "/selectPage", method = RequestMethod.POST)
     @Override
     public List<TestDTO> selectPage(@RequestBody Page page) {
         ValidationUtil.validate(page);
         return testService.selectPage(page);
     }
 
-    @RequestMapping(value = "insert", method = RequestMethod.POST)
+    @RequestMapping(value = "/insert", method = RequestMethod.POST)
     @Override
     public int insert(@RequestBody TestDTO testDTO) {
         ValidationUtil.validate(testDTO);
         return testService.insert(testDTO);
     }
 
-    @RequestMapping(value = "deleteById", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/deleteById", method = RequestMethod.DELETE)
     @Override
     public int deleteById(@RequestParam Long id) {
         return testService.deleteById(id);
