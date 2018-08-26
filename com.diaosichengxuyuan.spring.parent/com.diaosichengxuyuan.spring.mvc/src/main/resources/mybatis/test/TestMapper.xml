@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.diaosichengxuyuan.spring.mvc.dao.test.TestMapper">
+  <resultMap id="BaseResultMap" type="com.diaosichengxuyuan.spring.mvc.dao.test.entity.TestDO">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name1" jdbcType="VARCHAR" property="name1" />
+    <result column="name2" jdbcType="VARCHAR" property="name2" />
+    <result column="name3" jdbcType="VARCHAR" property="name3" />
+    <result column="age" jdbcType="SMALLINT" property="age" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+  </resultMap>
+</mapper>
