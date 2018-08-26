@@ -1,11 +1,11 @@
 package com.diaosichengxuyuan.spring.boot.service.test.impl;
 
-import com.diaosichengxuyuan.spring.boot.common.MapperUtil;
-import com.diaosichengxuyuan.spring.boot.common.Page;
 import com.diaosichengxuyuan.spring.boot.dao.test.TestMapper;
 import com.diaosichengxuyuan.spring.boot.dao.test.entity.TestDO;
 import com.diaosichengxuyuan.spring.boot.service.test.TestService;
 import com.diaosichengxuyuan.spring.boot.service.test.dto.TestDTO;
+import com.diaosichengxuyuan.spring.common.mapper.MapperUtil;
+import com.diaosichengxuyuan.spring.common.page.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

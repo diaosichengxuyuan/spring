@@ -1,7 +1,7 @@
 package com.diaosichengxuyuan.spring.boot.web.test;
 
 import com.diaosichengxuyuan.spring.boot.service.test.dto.TestDTO;
-import com.diaosichengxuyuan.spring.boot.common.Page;
+import com.diaosichengxuyuan.spring.common.page.Page;
 
 import java.util.List;
 

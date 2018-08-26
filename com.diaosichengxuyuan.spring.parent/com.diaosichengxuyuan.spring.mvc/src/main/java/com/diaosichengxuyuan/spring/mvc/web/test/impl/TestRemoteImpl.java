@@ -1,7 +1,7 @@
 package com.diaosichengxuyuan.spring.mvc.web.test.impl;
 
-import com.diaosichengxuyuan.spring.mvc.common.Page;
-import com.diaosichengxuyuan.spring.mvc.common.ValidationUtil;
+import com.diaosichengxuyuan.spring.common.page.Page;
+import com.diaosichengxuyuan.spring.common.validation.ValidationUtil;
 import com.diaosichengxuyuan.spring.mvc.service.test.TestService;
 import com.diaosichengxuyuan.spring.mvc.service.test.dto.TestDTO;
 import com.diaosichengxuyuan.spring.mvc.web.test.TestRemote;

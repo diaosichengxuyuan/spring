@@ -1,4 +1,4 @@
-package com.diaosichengxuyuan.spring.boot.common;
+package com.diaosichengxuyuan.spring.common.mapper;
 
 import ma.glasnost.orika.MapperFacade;
 import ma.glasnost.orika.MapperFactory;

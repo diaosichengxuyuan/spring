@@ -1,8 +1,10 @@
-package com.diaosichengxuyuan.spring.boot.common;
+package com.diaosichengxuyuan.spring.common.validation;
 
 import org.apache.commons.collections4.CollectionUtils;
 
-import javax.validation.*;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
 import java.util.Set;
 import java.util.stream.Collectors;
 

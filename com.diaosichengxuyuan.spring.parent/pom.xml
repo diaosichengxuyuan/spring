@@ -11,6 +11,7 @@
     <modules>
         <module>com.diaosichengxuyuan.spring.boot</module>
         <module>com.diaosichengxuyuan.spring.mvc</module>
+        <module>com.diaosichengxuyuan.spring.common</module>
     </modules>
 
     <properties>

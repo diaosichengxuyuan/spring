@@ -1,7 +1,7 @@
 package com.diaosichengxuyuan.spring.mvc.service.test.impl;
 
-import com.diaosichengxuyuan.spring.mvc.common.MapperUtil;
-import com.diaosichengxuyuan.spring.mvc.common.Page;
+import com.diaosichengxuyuan.spring.common.mapper.MapperUtil;
+import com.diaosichengxuyuan.spring.common.page.Page;
 import com.diaosichengxuyuan.spring.mvc.dao.test.TestMapper;
 import com.diaosichengxuyuan.spring.mvc.dao.test.entity.TestDO;
 import com.diaosichengxuyuan.spring.mvc.service.test.TestService;

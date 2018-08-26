@@ -1,4 +1,4 @@
-package com.diaosichengxuyuan.spring.boot.common;
+package com.diaosichengxuyuan.spring.common.page;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

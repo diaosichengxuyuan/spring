@@ -1,10 +1,10 @@
 package com.diaosichengxuyuan.spring.boot.web.test.impl;
 
-import com.diaosichengxuyuan.spring.boot.common.Page;
-import com.diaosichengxuyuan.spring.boot.common.ValidationUtil;
 import com.diaosichengxuyuan.spring.boot.service.test.TestService;
 import com.diaosichengxuyuan.spring.boot.service.test.dto.TestDTO;
 import com.diaosichengxuyuan.spring.boot.web.test.TestRemote;
+import com.diaosichengxuyuan.spring.common.page.Page;
+import com.diaosichengxuyuan.spring.common.validation.ValidationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

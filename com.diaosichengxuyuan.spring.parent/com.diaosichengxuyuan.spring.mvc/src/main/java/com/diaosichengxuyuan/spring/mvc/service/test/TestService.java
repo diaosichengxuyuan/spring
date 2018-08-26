@@ -1,6 +1,6 @@
 package com.diaosichengxuyuan.spring.mvc.service.test;
 
-import com.diaosichengxuyuan.spring.mvc.common.Page;
+import com.diaosichengxuyuan.spring.common.page.Page;
 import com.diaosichengxuyuan.spring.mvc.service.test.dto.TestDTO;
 
 import java.util.List;
