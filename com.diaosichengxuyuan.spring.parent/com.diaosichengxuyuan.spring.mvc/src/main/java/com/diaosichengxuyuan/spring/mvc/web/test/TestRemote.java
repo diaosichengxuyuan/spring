@@ -2,8 +2,7 @@ package com.diaosichengxuyuan.spring.mvc.web.test;
 
 import com.diaosichengxuyuan.spring.common.page.Page;
 import com.diaosichengxuyuan.spring.mvc.service.test.dto.TestDTO;
-
-import java.util.List;
+import org.springframework.ui.Model;
 
 /**
  * web层
@@ -13,15 +12,15 @@ import java.util.List;
  */
 public interface TestRemote {
 
-    TestDTO selectById(Long id);
+    String hello(Model model);
 
-    List<TestDTO> selectAll();
+    String selectById(Model model, Long id);
 
-    List<TestDTO> selectPage(Page page);
+    String selectAll(Model model);
 
-    int insert(TestDTO testDTO);
+    String selectPage(Model model, Page page);
 
-    int deleteById(Long id);
+    String insert(Model model, TestDTO testDTO);
 
-    String hello();
+    String deleteById(Model model, Long id);
 }

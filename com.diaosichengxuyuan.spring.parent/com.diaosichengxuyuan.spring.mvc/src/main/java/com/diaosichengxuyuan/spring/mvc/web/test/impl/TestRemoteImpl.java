@@ -1,5 +1,6 @@
 package com.diaosichengxuyuan.spring.mvc.web.test.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.diaosichengxuyuan.spring.common.page.Page;
 import com.diaosichengxuyuan.spring.common.validation.ValidationUtil;
 import com.diaosichengxuyuan.spring.mvc.service.test.TestService;
@@ -7,6 +8,7 @@ import com.diaosichengxuyuan.spring.mvc.service.test.dto.TestDTO;
 import com.diaosichengxuyuan.spring.mvc.web.test.TestRemote;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,44 +23,64 @@ import java.util.List;
 @RequestMapping(value = "/test")
 public class TestRemoteImpl implements TestRemote {
 
+    private static final String CONTENT = "content";
+
+    private static final String TEST = "test";
+
     @Autowired
     private TestService testService;
 
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    @Override
+    public String hello(Model model) {
+        model.addAttribute("name", "liuhaipeng");
+        model.addAttribute("age", 27);
+        return "hello";
+    }
+
     @RequestMapping(value = "/selectById", method = RequestMethod.GET)
     @Override
-    public TestDTO selectById(@RequestParam Long id) {
-        return testService.selectById(id);
+    public String selectById(Model model, @RequestParam Long id) {
+        TestDTO testDTO = testService.selectById(id);
+        String testDTOString = JSON.toJSONString(testDTO);
+        model.addAttribute(CONTENT, testDTOString);
+        return TEST;
     }
 
     @RequestMapping(value = "/selectAll", method = RequestMethod.GET)
     @Override
-    public List<TestDTO> selectAll() {
-        return testService.selectAll();
+    public String selectAll(Model model) {
+        List<TestDTO> testDTOs = testService.selectAll();
+        String testDTOsList = JSON.toJSONString(testDTOs);
+        model.addAttribute(CONTENT, testDTOsList);
+        return TEST;
     }
 
     @RequestMapping(value = "/selectPage", method = RequestMethod.POST)
     @Override
-    public List<TestDTO> selectPage(@RequestBody Page page) {
+    public String selectPage(Model model, @RequestBody Page page) {
         ValidationUtil.validate(page);
-        return testService.selectPage(page);
+        List<TestDTO> testDTOs = testService.selectPage(page);
+        String testDTOsList = JSON.toJSONString(testDTOs);
+        model.addAttribute(CONTENT, testDTOsList);
+        return TEST;
     }
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     @Override
-    public int insert(@RequestBody TestDTO testDTO) {
+    public String insert(Model model, @RequestBody TestDTO testDTO) {
         ValidationUtil.validate(testDTO);
-        return testService.insert(testDTO);
+        int num = testService.insert(testDTO);
+        model.addAttribute(CONTENT, num);
+        return TEST;
     }
 
     @RequestMapping(value = "/deleteById", method = RequestMethod.DELETE)
     @Override
-    public int deleteById(@RequestParam Long id) {
-        return testService.deleteById(id);
+    public String deleteById(Model model, @RequestParam Long id) {
+        int num = testService.deleteById(id);
+        model.addAttribute(CONTENT, num);
+        return TEST;
     }
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    @Override
-    public String hello() {
-        return "index";
-    }
 }
