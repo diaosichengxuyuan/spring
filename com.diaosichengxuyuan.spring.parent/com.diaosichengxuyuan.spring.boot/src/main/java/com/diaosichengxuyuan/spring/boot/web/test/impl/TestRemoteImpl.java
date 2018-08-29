@@ -5,6 +5,7 @@ import com.diaosichengxuyuan.spring.boot.service.test.dto.TestDTO;
 import com.diaosichengxuyuan.spring.boot.web.test.TestRemote;
 import com.diaosichengxuyuan.spring.common.page.Page;
 import com.diaosichengxuyuan.spring.common.validation.ValidationUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +19,7 @@ import java.util.List;
  */
 @RestController("testRemote")
 @RequestMapping(value = "/test")
+@Slf4j
 public class TestRemoteImpl implements TestRemote {
 
     @Autowired

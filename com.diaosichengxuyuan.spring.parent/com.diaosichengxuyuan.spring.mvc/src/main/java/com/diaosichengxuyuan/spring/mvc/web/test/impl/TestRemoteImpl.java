@@ -6,6 +6,7 @@ import com.diaosichengxuyuan.spring.common.validation.ValidationUtil;
 import com.diaosichengxuyuan.spring.mvc.service.test.TestService;
 import com.diaosichengxuyuan.spring.mvc.service.test.dto.TestDTO;
 import com.diaosichengxuyuan.spring.mvc.web.test.TestRemote;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,7 @@ import java.util.List;
  */
 @Controller("testRemote")
 @RequestMapping(value = "/test")
+@Slf4j
 public class TestRemoteImpl implements TestRemote {
 
     private static final String CONTENT = "content";
