@@ -28,20 +28,6 @@ com.diaosichengxuyuan.spring.mvc.common.mapper.MapperUtil
 ### 校验器
 com.diaosichengxuyuan.spring.mvc.common.validation.ValidationUtil
 
-### 运行检查
-需要配置management.security.enabled=false
-http://localhost:7002/health
-http://localhost:7002/beans
-http://localhost:7002/dump
-http://localhost:7002/env
-http://localhost:7002/info
-http://localhost:7002/mappings
-http://localhost:7002/trace
-http://localhost:7002/heapdump
-http://localhost:7002/shutdown
-http://localhost:7002/metrics
-http://localhost:7002/autoconfig
-
 ### 密码加密
 1.配置JVM参数-Dencrypt.algorithm.key=密钥
 2.使用com.diaosichengxuyuan.spring.mvc.common.encrypt.DESEncryptUtil.encrypt加密得到密文
