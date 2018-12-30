@@ -1,3 +1,14 @@
+spring:
+  #应用名
+  application:
+    name: com.diaosichengxuyuan.spring.cloud.provider.order1
+  #数据源
+  datasource:
+    url: jdbc:mysql://localhost:3306/lhp_db?useUnicode=true&characterEncoding=utf8
+    username: lhp_user
+    password: ENC(xrIEAg+Ai0U5Sq/1LBqkkosm24nqPBcI)
+    driver-class-name: com.mysql.jdbc.Driver
+
 #服务端口
 server:
   port: 10001
@@ -9,10 +20,10 @@ management:
   security:
     enabled: true
 
-#数据源
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/lhp_db?useUnicode=true&characterEncoding=utf8
-    username: lhp_user
-    password: ENC(xrIEAg+Ai0U5Sq/1LBqkkosm24nqPBcI)
-    driver-class-name: com.mysql.jdbc.Driver
+#eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:10003/eureka/
+  instance:
+    prefer-ip-address: true

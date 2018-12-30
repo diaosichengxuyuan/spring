@@ -18,10 +18,12 @@
     <packaging>pom</packaging>
 
     <properties>
+        <com.diaosichengxuyuan.spring.cloud.version>1.0-SNAPSHOT</com.diaosichengxuyuan.spring.cloud.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring.boot.version>1.5.13.RELEASE</spring.boot.version>
+        <spring.cloud.version>Edgware.RELEASE</spring.cloud.version>
         <mybatis.starter.version>1.1.1</mybatis.starter.version>
         <tk.mybatis.mapper.starter.version>2.0.0</tk.mybatis.mapper.starter.version>
         <pagehelper.starter.version>1.2.5</pagehelper.starter.version>
@@ -46,6 +48,11 @@
         <!--spring boot全部依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring.boot.version}</version>
         </dependency>
@@ -55,15 +62,7 @@
             <version>${spring.boot.version}</version>
         </dependency>
 
-        <!--spring cloud全部依赖-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-dependencies</artifactId>
-            <version>Edgware.RELEASE</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-
+        <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -109,12 +108,6 @@
             <artifactId>orika-core</artifactId>
             <version>${orika.core.version}</version>
         </dependency>
-        <!--c3p0连接池-->
-        <dependency>
-            <groupId>c3p0</groupId>
-            <artifactId>c3p0</artifactId>
-            <version>${c3p0.version}</version>
-        </dependency>
         <!--logback配置-->
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -144,6 +137,19 @@
             <version>${fastjson.version}</version>
         </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--spring cloud全部依赖-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <pluginManagement>
