@@ -1,4 +1,4 @@
-package com.diaosichengxuyuan.spring.cloud.provider.order1.web;
+package com.diaosichengxuyuan.spring.cloud.consumer.user1.web;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order1 {
+public class Order {
 
     private Long id;
 

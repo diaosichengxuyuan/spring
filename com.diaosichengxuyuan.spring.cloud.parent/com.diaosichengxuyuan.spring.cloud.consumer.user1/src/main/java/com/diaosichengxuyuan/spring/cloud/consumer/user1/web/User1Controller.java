@@ -1,11 +1,9 @@
 package com.diaosichengxuyuan.spring.cloud.consumer.user1.web;
 
-import com.diaosichengxuyuan.spring.cloud.provider.order1.web.Order1;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -16,11 +14,23 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping(value = "user1")
 public class User1Controller {
 
+    private static final String MICROSERVICE_NAME = "com.diaosichengxuyuan.spring.cloud.provider.order";
+
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private LoadBalancerClient loadBalancerClient;
+
     @RequestMapping(value = "/findById", method = RequestMethod.GET)
-    public Order1 findById(@RequestParam Long id) {
-        return restTemplate.getForObject("http://localhost:10001/order1/findById?id=" + id, Order1.class);
+    public Order findById(@RequestParam Long id) {
+        return restTemplate.getForObject("http://" + MICROSERVICE_NAME + "/order/findById?id=" + id, Order.class);
+    }
+
+    @GetMapping(value = "/userInstance")
+    public String logUserInstance() {
+        ServiceInstance serviceInstance = loadBalancerClient.choose(MICROSERVICE_NAME);
+        return String.format("当前选择的服务实例：%s，主机：%s，端口：%s", serviceInstance.getServiceId(), serviceInstance.getHost(),
+            serviceInstance.getPort());
     }
 }
