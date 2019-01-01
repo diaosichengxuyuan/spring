@@ -2,8 +2,10 @@ package com.diaosichengxuyuan.spring.cloud.consumer.user1.web;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -23,6 +25,9 @@ public class User1Controller {
     @Autowired
     private LoadBalancerClient loadBalancerClient;
 
+    @Value("${name}")
+    private String name;
+
     @HystrixCommand(fallbackMethod = "findByIdFallback")
     @RequestMapping(value = "/findById/{id}", method = RequestMethod.GET)
     public Order findById(@PathVariable Long id) {
@@ -34,6 +39,11 @@ public class User1Controller {
         ServiceInstance serviceInstance = loadBalancerClient.choose(MICROSERVICE_NAME);
         return String.format("当前选择的服务实例：%s，主机：%s，端口：%s", serviceInstance.getServiceId(), serviceInstance.getHost(),
             serviceInstance.getPort());
+    }
+
+    @GetMapping("/getNameFromConfig")
+    public String getNameFromConfig(){
+       return this.name;
     }
 
     public Order findByIdFallback(Long id){

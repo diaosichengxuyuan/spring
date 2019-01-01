@@ -1,0 +1,10 @@
+spring:
+##依赖的应用名，我觉得不合理，如果设置了依赖的config server应用名，就没办法自定义自己的应用名了
+#  application:
+#    name: com.diaosichengxuyuan.spring.cloud.config.server
+  #依赖的服务配置
+  cloud:
+    config:
+      uri: http://localhost:10005/
+      profile: test
+      label: master
