@@ -1,5 +1,6 @@
 package com.diaosichengxuyuan.spring.cloud.consumer.user1.web;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
@@ -22,9 +23,10 @@ public class User1Controller {
     @Autowired
     private LoadBalancerClient loadBalancerClient;
 
-    @RequestMapping(value = "/findById", method = RequestMethod.GET)
-    public Order findById(@RequestParam Long id) {
-        return restTemplate.getForObject("http://" + MICROSERVICE_NAME + "/order/findById?id=" + id, Order.class);
+    @HystrixCommand(fallbackMethod = "findByIdFallback")
+    @RequestMapping(value = "/findById/{id}", method = RequestMethod.GET)
+    public Order findById(@PathVariable Long id) {
+        return restTemplate.getForObject("http://" + MICROSERVICE_NAME + "/order/findById/" + id, Order.class);
     }
 
     @GetMapping(value = "/userInstance")
@@ -32,5 +34,9 @@ public class User1Controller {
         ServiceInstance serviceInstance = loadBalancerClient.choose(MICROSERVICE_NAME);
         return String.format("当前选择的服务实例：%s，主机：%s，端口：%s", serviceInstance.getServiceId(), serviceInstance.getHost(),
             serviceInstance.getPort());
+    }
+
+    public Order findByIdFallback(Long id){
+        return Order.builder().id(-1L).name("默认用户").age(-1).build();
     }
 }
