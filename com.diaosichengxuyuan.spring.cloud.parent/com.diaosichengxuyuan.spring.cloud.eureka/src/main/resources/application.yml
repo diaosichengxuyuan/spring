@@ -15,3 +15,10 @@ spring:
     username: lhp_user
     password: ENC(xrIEAg+Ai0U5Sq/1LBqkkosm24nqPBcI)
     driver-class-name: com.mysql.jdbc.Driver
+
+management:
+  #管理端口
+  port: 10013
+  #安全检查
+  security:
+    enabled: true
