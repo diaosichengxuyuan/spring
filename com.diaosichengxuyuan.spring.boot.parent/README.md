@@ -46,3 +46,21 @@ http://localhost:7002/autoconfig
 1.获取加密的密文：java -cp ~/.m2/repository/org/jasypt/jasypt/1.9.2/jasypt-1.9.2.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input="明文" password=密钥 algorithm=PBEWithMD5AndDES
 2.将密文配置到application.properties中spring.datasource.password=ENC(密文)
 3.应用启动增加JVM参数-Djasypt.encryptor.password=密钥
+
+### docker化本项目
+1.父pom中将spring-boot maven插件修改为如下，这样就会打成一个可执行的jar
+<plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+    <version>${spring.boot.maven.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>repackage</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+2.Dockerfile中修改-Djasypt.encryptor.password=密钥
+3.docker build -t diaosichengxuyuan/com.diaosichengxuyuan.spring.boot.web:1.0-SNAPSHOT .
+4.docker run -d -p 7001:7001 diaosichengxuyuan/com.diaosichengxuyuan.spring.boot.web:1.0-SNAPSHOT
