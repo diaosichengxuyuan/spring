@@ -170,10 +170,11 @@
         </dependencies>
     </dependencyManagement>
 
+    <!--直接使用pluginManagement即可，子工程无需再引入插件-->
     <build>
         <pluginManagement>
             <plugins>
-                <!--maven插件-->
+                <!--spring-boot maven插件-->
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
@@ -210,6 +211,18 @@
                         <target>${java.version}</target>
                         <encoding>${project.build.sourceEncoding}</encoding>
                         <showWarnings>true</showWarnings>
+                    </configuration>
+                </plugin>
+                <!--jar包参数-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <mainClass>com.diaosichengxuyuan.spring.boot.web.Application</mainClass>
+                            </manifest>
+                        </archive>
                     </configuration>
                 </plugin>
             </plugins>
