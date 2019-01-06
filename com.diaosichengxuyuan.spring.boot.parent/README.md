@@ -61,6 +61,8 @@ http://localhost:7002/autoconfig
         </execution>
     </executions>
 </plugin>
-2.Dockerfile中修改-Djasypt.encryptor.password=密钥
-3.docker build -t diaosichengxuyuan/com.diaosichengxuyuan.spring.boot.web:1.0-SNAPSHOT .
-4.docker run -d -p 7001:7001 diaosichengxuyuan/com.diaosichengxuyuan.spring.boot.web:1.0-SNAPSHOT
+2.com.diaosichengxuyuan.spring.boot.web工程下执行mvn clean package
+3.Dockerfile中修改-Djasypt.encryptor.password=密钥
+4.将打的包和Dockerfile放到同一个目录中开始编译
+5.docker build -t diaosichengxuyuan/com.diaosichengxuyuan.spring.boot:1.0-SNAPSHOT .
+6.docker run -d -p 7001:7001 diaosichengxuyuan/com.diaosichengxuyuan.spring.boot:1.0-SNAPSHOT
