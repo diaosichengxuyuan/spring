@@ -20,7 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring.version>4.3.17.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
         <mybatis.starter.version>1.1.1</mybatis.starter.version>
         <tk.mybatis.mapper.starter.version>2.0.0</tk.mybatis.mapper.starter.version>
         <pagehelper.starter.version>1.2.5</pagehelper.starter.version>
